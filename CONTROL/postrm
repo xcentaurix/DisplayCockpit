@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Cleaning up after LCDCockpit removal..."
+rm -rf -- /usr/share/enigma2/display/LCDCockpit >/dev/null 2>&1
+exit 0
