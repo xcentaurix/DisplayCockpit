@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<skin>
+    <windowstyle id="1" type="skinned">
+        <color color="#000000" name="Background"/>
+        <color color="#ffffff" name="LabelForeground"/>
+        <color color="#000000" name="ListboxBackground"/>
+        <color color="#ffffff" name="ListboxForeground"/>
+        <color color="#000000" name="ListboxSelectedBackground"/>
+        <color color="#ffffff" name="ListboxSelectedForeground"/>
+        <color color="#000000" name="ListboxMarkedBackground"/>
+        <color color="#ffffff" name="ListboxMarkedForeground"/>
+        <color color="#000000" name="ListboxMarkedAndSelectedBackground"/>
+        <color color="#ffffff" name="ListboxMarkedAndSelectedForeground"/>
+        <color color="#ffffff" name="WindowTitleForeground"/>
+        <color color="#000000" name="WindowTitleBackground"/>
+    </windowstyle>
+
+    <fonts>
+        <font filename="nmsbd.ttf" name="FdLcD" scale="100"/>
+        <font filename="OpenSans-Regular.ttf" name="FdLcDLight" scale="100"/>
+    </fonts>
+
+    <colors>
+        <color name="FdLcdTitleForeground" value="#7fffff" /><!-- LightCyan -->
+        <color name="FdLcdRed" value="#00f50808" />
+        <color name="FdLcdBlack" value="#00000000" />
+        <color name="FdLcdAmber" value="#fcc800" />
+    </colors>
+
+    <screen name="LCDBackground">
+        <ePixmap pixmap="display_bg.png" position="0,0" size="e,e" zPosition="-10" alphatest="on"/>
+    </screen>
+
+    <screen name="LCDTitle">
+        <widget transparent="1" source="parent.title" render="Label" position="0,0" size="e-3,63" font="FdLcD;55" halign="center" valign="center" zPosition="2" foregroundColor="FdLcdTitleForeground"/>
+    </screen>
+
+    <screen name="LCDInfoBarProgramName">
+        <widget transparent="1" source="session.Event_Now" render="Label" position="0,10" size="e-3,120" font="FdLcD;50" halign="center" valign="center" zPosition="2">
+            <convert type="EventName">Name</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDInfoBarProgress">
+        <widget source="session.Event_Now" render="Progress" position="0,140" size="e-3,20" borderColor="FdLcdAmber" borderWidth="2" transparent="1" zPosition="2">
+            <convert type="EventTime">Progress</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDInfoBarMovieProgress">
+        <widget source="session.CurrentService" render="Progress" position="0,140" size="e-3,20" borderColor="FdLcdAmber" borderWidth="2" transparent="1" zPosition="2">
+            <convert type="ServicePosition">VFDPosition</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDInfoBarRemainingTime">
+        <widget transparent="1" source="session.Event_Now" render="Label" position="198,e-80" size="197,80" font="FdLcD;60" halign="right" valign="center">
+            <convert type="EventTime">Remaining</convert>
+            <convert type="RemainingToText">VFDOnlyMinutes</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDInfoBarStartEndTime">
+        <widget transparent="1" source="session.Event_Now" render="Label" position="0,e-80" size="198,80" font="FdLcD;60" halign="left" valign="center">
+            <convert type="EventTime">EndTime</convert>
+            <convert type="ClockToText">Format:&gt;%H:%M</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDChannelSelectionChannelName">
+        <widget transparent="1" source="parent.ServiceEvent" render="RunningText" options="movetype=running,startpoint=0,direction=left,steptime=80,repeat=3,always=0,oneshot=1,startdelay=6000,wrap" position="0,0" size="e-3,130" font="FdLcD;50" halign="center" valign="center" zPosition="2">
+            <convert type="ServiceName">Name</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDChannelSelectionProgress">
+        <widget source="parent.ServiceEvent" render="Progress" position="0,140" size="e-3,20" borderColor="FdLcdAmber" borderWidth="2" transparent="1" zPosition="2">
+            <convert type="EventTime">Progress</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDChannelSelectionRemainingTime">
+        <widget transparent="1" source="parent.ServiceEvent" render="Label" position="0,e-80" size="200,80" font="FdLcD;60" halign="left" valign="center">
+            <convert type="EventTime">StartTime</convert>
+            <convert type="ClockToText">Format:%H:%M</convert>
+        </widget>
+        <widget transparent="1" source="parent.ServiceEvent" render="Label" position="200,e-80" size="e-3-200,80" font="FdLcD;60" halign="right" valign="center">
+            <convert type="EventTime">Remaining</convert>
+            <convert type="RemainingToText">VFDOnlyMinutes</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDEPGChannelName">
+        <widget transparent="1" source="parent.Service" render="Label" position="0,0" size="e-3,130" font="FdLcD;50" halign="center" valign="center" zPosition="2">
+            <convert type="ServiceName">Name</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDEPGProgress">
+        <widget source="parent.Event" render="Progress" position="0,140" size="e-3,20" borderColor="FdLcdAmber" borderWidth="2" transparent="1" zPosition="2">
+            <convert type="EventTime">Progress</convert>
+        </widget>
+    </screen>
+
+    <screen name="LCDEPGRemainingTime">
+        <widget transparent="1" source="parent.Event" render="Label" position="0,e-80" size="198,90" font="FdLcD;60" halign="left" valign="center">
+            <convert type="EventTime">StartTime</convert>
+            <convert type="ClockToText">Format:%H:%M</convert>
+        </widget>
+        <widget transparent="1" source="parent.Event" render="Label" position="198,e-80" size="197,90" font="FdLcD;60" halign="right" valign="center">
+            <convert type="EventTime">Remaining</convert>
+            <convert type="RemainingToText">VFDOnlyMinutes</convert>
+        </widget>
+    </screen>
+
+    <screen name="ChoiceBoxSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.summary_selection" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" zPosition="2" />
+    </screen>
+
+    <screen name="IMDbLCDScreen" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <eLabel text="IMDB Search" position="0,0" size="e-3,e" font="FdLcD;45" halign="center" valign="center" />
+    </screen>
+
+    <screen name="JobViewSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="parent.summary_job_name" render="Label" position="0,0" size="e-3,80" font="FdLcD;55" halign="left" valign="center" zPosition="2" />
+        <widget transparent="1" source="parent.summary_job_task" render="Label" position="0,80" size="e-3,80" font="FdLcD;40" halign="left" valign="center" zPosition="2" />
+        <widget source="parent.summary_job_progress" render="Progress" position="0,e-80" size="e-3,80" borderColor="FdLcdAmber" borderWidth="2" transparent="1" zPosition="3"/>
+        <widget source="parent.summary_job_progress" render="Label" position="0,e-80" size="e-3,80" foregroundColor="#888888" font="FdLcDLight;40" halign="center" valign="center" zPosition="4" transparent="1">
+            <convert type="ProgressToText" />
+        </widget>
+    </screen>
+
+    <screen name="MenuSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.menu" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" zPosition="2">
+            <convert type="StringListSelection" />
+        </widget>
+    </screen>
+
+    <screen name="AboutSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="AboutText" render="Label" position="0,0" size="e-3,e" font="FdLcDLight;45" halign="center" valign="center" zPosition="2" />
+    </screen>
+
+    <screen name="MessageBoxSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="parent.Text" render="Label" position="0,0" size="e-3,180" font="FdLcD;50" halign="center" valign="center" zPosition="2" />
+        <widget transparent="1" source="parent.selectedChoice" render="Label" position="0,180" size="e-3,60" font="FdLcDLight;40" halign="center" zPosition="2" />
+    </screen>
+
+    <screen name="MessageBoxSimpleSummary" position="fill" resolution="396,240">
+        <panel name="MessageBoxSummary" />
+    </screen>
+
+    <screen name="MessageBoxWizardSummary" position="fill" resolution="396,240">
+        <panel name="MessageBoxSummary" />
+    </screen>
+
+    <screen name="MovieSelectionSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="name" render="Label" position="0,0" size="e-3,e-80" font="FdLcD;45" halign="center" valign="center" zPosition="2" />
+        <widget transparent="1" source="parent.Service" render="Label" position="0,e-80" size="300,80" font="FdLcD;60" halign="left" valign="center">
+            <convert type="COCMovieInfo">FileSize</convert>
+        </widget>
+        <widget transparent="1" source="parent.Service" render="Label" position="300,e-80" size="92,80" font="FdLcD;60" halign="right" valign="center">
+            <convert type="ServiceTime">Duration</convert>
+            <convert type="ClockToText">InMinutes</convert>
+        </widget>
+    </screen>
+
+    <screen name="MovieContextMenuSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="selected" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" />
+    </screen>
+
+    <screen name="InfoBarMoviePlayerSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="session.CurrentService" render="Label" position="0,0" size="e-3,120" font="FdLcD;50" halign="center" valign="center" zPosition="2">
+            <convert type="ServiceName">Name</convert>
+        </widget>
+        <panel name="LCDInfoBarMovieProgress"/>
+        <widget font="FdLcD;60" halign="left" position="0,e-80" render="Label" size="230,80" source="session.CurrentService" transparent="1" valign="center">
+            <convert type="COCServicePosition">EndTime,ShowNoSeconds</convert>
+        </widget>
+        <widget font="FdLcD;60" halign="right" position="e-150-3,e-80" render="Label" size="150,80" source="session.CurrentService" transparent="1" valign="center">
+            <convert type="COCServicePosition">Remaining,ShowNoSeconds</convert>
+        </widget>
+    </screen>
+
+    <screen name="NumberZapSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="parent.servicename_summary" render="Label" position="0,0" size="e-3,80" font="FdLcD;50" halign="center" valign="center" zPosition="2" />
+        <widget transparent="1" source="parent.number_summary" render="Label" position="0,80" size="e-3,160" font="FdLcD;80" halign="center" valign="center" zPosition="2" />
+    </screen>
+
+    <screen name="PluginBrowserSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="entry" render="Label" position="0,65" size="e-3,63" font="FdLcDLight;45" halign="center" zPosition="2" noWrap="1" />
+        <widget transparent="1" source="desc" render="Label" position="0,128" size="e-3,112" font="FdLcDLight;40" halign="center" zPosition="2" />
+    </screen>
+
+    <screen name="SetupSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="SetupTitle" render="Label" position="0,0" size="e-3,65" font="FdLcD;55" halign="center" valign="center" zPosition="2" noWrap="1" />
+        <widget transparent="1" source="SetupEntry" render="Label" position="0,65" size="e-3,115" font="FdLcDLight;45" halign="center" zPosition="2" noWrap="1" />
+        <widget transparent="1" source="SetupValue" render="Label" position="0,180" size="e-3,60" font="FdLcDLight;40" halign="center" zPosition="2" noWrap="1" />
+    </screen>
+
+    <screen name="SkinSelectorSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="Name" render="Label" position="0,65" size="e-3,115" font="FdLcDLight;45" halign="center" valign="center" zPosition="2" />
+        <widget transparent="1" source="value" render="Label" position="0,180" size="e-3,60" font="FdLcDLight;40" halign="center" zPosition="2" />
+    </screen>
+
+    <screen name="StandbySummary" position="fill" resolution="396,240">
+        <widget transparent="1" source="global.CurrentTime" render="Label" position="0,0" size="e-3,e" font="FdLcD;120" halign="center" valign="center" zPosition="1">
+            <convert type="ClockToText">Default</convert>
+        </widget>
+    </screen>
+
+    <screen name="ScreenSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="Title" render="Label" position="0,0" size="e-3,e" font="FdLcD;45" halign="center" />
+    </screen>
+
+    <screen name="ServiceScanSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" name="Title" render="Label" position="0,0" size="295,65" font="FdLcD;55" halign="center" valign="center" />
+        <widget name="scan_progress" position="0,180" size="e-3,60" borderColor="FdLcdAmber" borderWidth="2" transparent="1" />
+        <widget name="Service" position="0,65" size="e-3,115" font="FdLcD;40" transparent="1" />
+    </screen>
+
+    <screen name="TimerEditListSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="service" render="Label" position="0,0" size="e-3,65" font="FdLcD;55" halign="center" valign="center" noWrap="1" />
+        <widget transparent="1" source="name" render="Label" position="0,65" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" />
+        <widget source="time" render="Label" position="0,100" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" transparent="1" />
+        <widget source="duration" render="Label" position="0,135" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" transparent="1" />
+        <widget source="state" render="Label" position="0,170" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" transparent="1" />
+    </screen>app
+
+    <screen name="LanguageSelectionSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="summarylangsel" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" zPosition="2" />
+        <widget transparent="1" name="flag" position="155,160" size="90,60" alphatest="blend" zPosition="100" scale="1" />
+    </screen>
+
+    <screen name="WizardSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="text" render="Label" position="0,0" size="e-3,63" font="FdLcD;55" halign="center" valign="center"/>
+        <widget transparent="1" source="parent.list" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" >
+            <convert type="StringListSelection" />
+        </widget>
+    </screen>
+
+    <screen name="LanguageWizardSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="parent.summarytext" render="Label" position="0,0" size="e-3,63" font="FdLcD;55" halign="center" valign="center" zPosition="2" />
+        <widget transparent="1" source="parent.summarylangname" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" zPosition="2" />
+    </screen>
+
+    <screen name="PackageManagerSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.list" render="Label" position="0,65" size="e-3,160" font="FdLcDLight;45" halign="center">
+            <convert type="StringListSelection" />
+        </widget>
+    </screen>
+
+    <screen name="NimSelectionSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.nimlist" render="Listbox" position="0,65" size="e-3,160" scrollbarMode="showNever">
+            <convert type="TemplatedMultiContent">
+                {
+                    "template": [MultiContentEntryText(pos = (0,0), size = (360,80), flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 1)], # index 1 is the nim name
+                    "fonts": [gFont("FdLcDLight",45),],
+                    "itemHeight": 80
+                }
+            </convert>
+        </widget>
+    </screen>
+
+    <screen name="CommitInfoSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="commitText" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" halign="center" zPosition="2" />
+    </screen>
+
+    <screen name="NetworkServicesSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="status_summary" render="Label" position="0,65" size="e-3,115" zPosition="1" font="FdLcDLight;45" halign="center" valign="center" />
+        <widget source="autostartstatus_summary" render="Label" position="0,180" size="e-3,60" font="FdLcDLight;40" halign="center" valign="center" transparent="1" />
+    </screen>
+
+    <screen name="InputDeviceSelectionSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.list" render="Listbox" position="0,65" size="e-3,160" scrollbarMode="showNever">
+            <convert type="TemplatedMultiContent">
+                {
+                    "template": [MultiContentEntryText(pos = (0,0), size = (360,80), flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 1)], # index 1 is the interfacename
+                    "fonts": [gFont("FdLcDLight",45),],
+                    "itemHeight": 80				
+                }
+            </convert>
+        </widget>
+    </screen>
+
+    <screen name="PowerTimerEditListSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="timertype" render="Label" position="0,65" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" noWrap="1" />
+        <widget source="time" render="Label" position="0,100" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" transparent="1" />
+        <widget source="duration" render="Label" position="0,135" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" transparent="1" />
+        <widget source="state" render="Label" position="0,170" size="e-3,35" font="FdLcDLight;28" halign="center" valign="center" transparent="1" />
+    </screen>
+
+    <screen name="ServiceInfoSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="info" render="Label" position="0,0" size="e-3,e" font="FdLcDLight;45" noWrap="1" />
+    </screen>
+
+    <screen name="EventViewSummary" position="fill" resolution="396,240">
+        <panel name="EventViewSimpleSummary" />
+    </screen>
+
+    <screen name="EventViewSimpleSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.summary_description" render="Label" position="0,65" size="e-3,175" font="FdLcDLight;45" />
+    </screen>
+
+    <screen name="UpdatePluginSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget transparent="1" source="parent.package" render="Label" position="0,65" size="e-3,115" font="FdLcDLight;45" halign="center" />
+        <widget transparent="1" source="parent.status" render="Label" position="0,180" size="295,60" font="FdLcDLight;40" halign="center" valign="center" />
+    </screen>
+
+    <screen name="AutoTimerOverviewSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <panel name="LCDTitle" />
+        <widget source="entry" render="Label" position="0,65" size="e-3,160" font="FdLcDLight;45" halign="center" transparent="1" zPosition="1" />
+    </screen>
+
+    <screen name="GraphicalEPGSummary" position="fill" resolution="396,240">
+        <panel name="GraphicalEPGPIGSummary" />
+    </screen>
+
+    <screen name="GraphicalInfoBarEPGSummary" position="fill" resolution="396,240">
+        <panel name="GraphicalEPGPIGSummary" />
+    </screen>
+
+    <screen name="EPGSelectionMultiSummary" position="fill" resolution="396,240">
+        <panel name="GraphicalEPGPIGSummary" />
+    </screen>
+
+    <screen name="EPGSelectionSummary" position="fill" resolution="396,240">
+        <panel name="GraphicalEPGPIGSummary" />
+    </screen>
+
+    <screen name="ChannelSelectionRadioSummary" position="fill" resolution="396,240">
+        <panel name="LCDBackground" />
+        <widget transparent="1" source="parent.RdsDecoder" render="Label" position="0,0" size="e-3,e" font="FdLcDLight;45" halign="center" valign="center" zPosition="2">
+            <convert type="RdsInfo">RtpText</convert>
+        </widget>
+    </screen>
+</skin>
