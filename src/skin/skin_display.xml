@@ -2,21 +2,21 @@
 <skin>
 	<include filename="skin_display_templates.xml"/>
 
-	<screen name="ChannelSelectionSummary" position="fill" resolution="396,240">
+	<screen name="ChannelSelectionSummary" position="fill">
 		<panel name="LCDBackground" />
 		<panel name="LCDChannelSelectionChannelName" />
 		<panel name="LCDChannelSelectionProgress" />
 		<panel name="LCDChannelSelectionRemainingTime" />
 	</screen>
 
-	<screen name="GraphicalEPGPIGSummary" position="fill" resolution="396,240">
+	<screen name="GraphicalEPGPIGSummary" position="fill">
 		<panel name="LCDBackground" />
 		<panel name="LCDEPGChannelName" />
 		<panel name="LCDEPGProgress" />
 		<panel name="LCDEPGRemainingTime" />
 	</screen>
 
-	<screen name="InfoBarSummary" position="fill" resolution="396,240">
+	<screen name="InfoBarSummary" position="fill">
 		<panel name="LCDBackground" />
 		<panel name="LCDInfoBarProgramName" />
 		<panel name="LCDInfoBarProgress" />
