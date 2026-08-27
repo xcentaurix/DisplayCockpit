@@ -1,4 +1,4 @@
-Package: enigma2-plugin-skins-lcdcockpit
-Version: 0.3.1
+Package: enigma2-plugin-skins-displaycockpit
+Version: 0.5.1
 Architecture: all
 Depends: enigma2-plugin-skincomponents-cockpit

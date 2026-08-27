@@ -1,9 +1,9 @@
-# LCDCockpit (LCD)
+# DisplayCockpit
 
 ![Screenshot](prev.png)
 
 ## Features
-LCDCockpit is a skin for Enigma2 receivers with a 396x240 pixel LCD/VFD front panel display, based on the OpenViX "display800" skin. It provides lcd display screens without bells and whistles optimized for a larger viewing distance (like 5 m) - see the [screen gallery](docs/gallery.md) for previews of every screen.
+DisplayCockpit is a skin for Enigma2 receivers with a 396x240 pixel LCD/VFD front panel display, based on the OpenViX "display800" skin. It provides display screens without bells and whistles optimized for a larger viewing distance (like 5 m) - see the [screen gallery](docs/gallery.md) for previews of every screen.
 
 ## Disclaimer
 The project author is not responsible for how this software is used by others. It is not intended to be used for accessing or distributing copyrighted materials without authorization.
@@ -15,4 +15,4 @@ This repository has no control over the streams, links, or the legality of the c
 - Tested on OpenViX and OpenATV with DM900.
 
 ## Links
-- Installation: https://xcentaurix.github.io/LCDCockpit
+- Installation: https://xcentaurix.github.io/DisplayCockpit

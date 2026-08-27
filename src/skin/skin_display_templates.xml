@@ -242,7 +242,7 @@
 
     <screen name="ScreenSummary" position="fill">
         <panel name="LCDBackground" />
-        <widget transparent="1" source="Title" render="Label" position="0,0" size="e-3,e" font="FdLcD;45" halign="center" />
+        <widget transparent="1" source="Title" render="Label" position="0,0" size="e-3,e-25" font="FdLcD;45" halign="center" />
     </screen>
 
     <screen name="ServiceScanSummary" position="fill">
