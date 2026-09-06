@@ -1,3 +1,2 @@
 ﻿installdir = /usr/share/enigma2/display/DisplayCockpit
-SUBDIRS = images
-install_DATA = *.xml *.png
+install_DATA = *.svg *.jpg *.png
